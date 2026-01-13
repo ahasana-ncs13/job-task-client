@@ -1,4 +1,4 @@
-export default function Home() {
+export default function booklists() {
   return (
     <div>lists</div>
   );
