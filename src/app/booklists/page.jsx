@@ -1,5 +1,9 @@
+import AllBooks from "@/Components/AllBooks/AllBooks";
+
 export default function booklists() {
   return (
-    <div>lists</div>
+    <>
+    <AllBooks></AllBooks>
+    </>
   );
 }
