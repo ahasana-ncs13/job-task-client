@@ -1,14 +1,15 @@
 "use client";
 
-
 export default function LoginForm() {
- 
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const email=e.target.email.value;
     const password=e.target.password.value;
     console.log(password,email)
+    if (email==="ahasana@sana.com" && password===123456) {
+      // navigate("/")
+    }
   };
 
   return (

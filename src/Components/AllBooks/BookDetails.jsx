@@ -1,6 +1,26 @@
 "use client";
 
-export default function bookdetails({ book }) {
+import useAxios from "@/Components/Modules/Hook/useAxios";
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
+
+export default function BookDetails() {
+ const [book, setBook] = useState(null);
+
+  const { id } = useParams();
+  console.log(id)
+  const axiosInstance=useAxios()
+  console.log(book)
+  // Fetch book data on client
+  useEffect(() => {
+    const fetchBookDetails = async () => {
+      const res = await axiosInstance.get(`/bookdetails/${id}`);
+    //   const data = await res.json();
+      setBook(res.data);
+    };
+    fetchBookDetails();
+  }, [id,axiosInstance]);
+
   if (!book) return null;
 
   return (

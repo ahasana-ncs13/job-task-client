@@ -3,22 +3,24 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { GiRoundStar } from "react-icons/gi";
+import useAxios from "../Modules/Hook/useAxios";
 
 const PAGE_SIZE = 8; // Books per page
 
 export default function AllBooks() {
   const [books, setBooks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-
+  const axiosInstance=useAxios()
+  console.log(books)
   // Fetch book data on client
   useEffect(() => {
     const fetchBooks = async () => {
-      const res = await fetch("/booksdata.json");
-      const data = await res.json();
-      setBooks(data.books); // assuming your JSON has { books: [...] }
+      const res = await axiosInstance.get("/allbooks");
+    //   const data = await res.json();
+      setBooks(res.data);
     };
     fetchBooks();
-  }, []);
+  }, [axiosInstance]);
 
   // Pagination
   const totalPages = Math.ceil(books.length / PAGE_SIZE);
@@ -73,7 +75,7 @@ export default function AllBooks() {
                 </div>
               </div>
               <Link
-                href={`/bookdetails/${book.id}`}
+                href={`/bookdetails/${book._id}`}
               >
                 <button className=" px-4 py-2 rounded-md border-none bg-teal-700 text-white hover:bg-teal-800
 w-full">View Details</button>
