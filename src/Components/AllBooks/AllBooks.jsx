@@ -11,7 +11,7 @@ export default function AllBooks() {
   const [books, setBooks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const axiosInstance=useAxios()
-  console.log(books)
+  // console.log(books)
   // Fetch book data on client
   useEffect(() => {
     const fetchBooks = async () => {
@@ -45,7 +45,7 @@ export default function AllBooks() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {currentBooks.map((book) => (
             <div
-              key={book.id}
+              key={book._id}
               className="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden flex flex-col"
             >
               {/* Book Cover */}
