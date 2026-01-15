@@ -1,16 +1,28 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    setLoggedIn(document.cookie.includes("auth=true"));
+  }, []);
+
+  const handleLogout = () => {
+    // Clear cookie and update state
+    document.cookie = "auth=; path=/; max-age=0";
+    setLoggedIn(false);
+    router.push("/login");
+  };
 
   const navLinks = [
     { name: "Home", href: "/" },
-    // { name: "Categories", href: "/categories" },
     { name: "BookLists", href: "/booklists" },
     { name: "AddBooks", href: "/addbooks" },
   ];
@@ -39,13 +51,23 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
+
             {/* Auth Buttons */}
-            <Link
-              href="/login"
-              className="ml-4 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm hover:bg-indigo-700 transition"
-            >
-              Login
-            </Link>
+            {!loggedIn ? (
+              <Link
+                href="/login"
+                className="ml-4 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm hover:bg-indigo-700 transition"
+              >
+                Login
+              </Link>
+            ) : (
+              <button
+                onClick={handleLogout}
+                className="ml-4 px-4 py-2 bg-red-500 text-white rounded-lg text-sm hover:bg-red-600 transition"
+              >
+                Logout
+              </button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -74,12 +96,25 @@ export default function Navbar() {
             </Link>
           ))}
 
-          <Link
-            href="/login"
-            className="block w-full text-center px-4 py-2 bg-indigo-600 text-white rounded-lg"
-          >
-            Login
-          </Link>
+          {!loggedIn ? (
+            <Link
+              href="/login"
+              className="block w-full text-center px-4 py-2 bg-indigo-600 text-white rounded-lg"
+              onClick={() => setIsOpen(false)}
+            >
+              Login
+            </Link>
+          ) : (
+            <button
+              onClick={() => {
+                handleLogout();
+                setIsOpen(false);
+              }}
+              className="block w-full text-center px-4 py-2 bg-red-500 text-white rounded-lg"
+            >
+              Logout
+            </button>
+          )}
         </div>
       )}
     </nav>

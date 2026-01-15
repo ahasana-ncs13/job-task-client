@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# BookNest
 
-## Getting Started
+BookNest is a modern web application for book lovers. It allows users to browse books, view detailed information, read reviews, and manage their own book collection. The platform includes features such as book listings, categories, user authentication, and a protected page for adding new books. BookNest is built with **Next.js**, **Tailwind CSS**, and **React**.
 
-First, run the development server:
+---
+
+## 📦 Setup & Installation
+
+1. **Clone the repository**
 
 ```bash
+git clone https://github.com/ahasana-ncs13/job-task-client.git
+cd booknest
+Install dependencies
+
+npm install
+Run the development server
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The app will be available at http://localhost:3000.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Environment Variables
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Create a .env file in the root directory and add:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+USER_NAME=BookNest
+USER_PASSWORD=b4Mil9qQ4WbLA9JZ
+Start the backend server (if using Express.js)
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+npm run server
+Make sure the server is running at http://localhost:5000 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🌐 Route Summary
+Route	Description	Access
+/	Home / Hero Section	Public
+/booklists	List of all books with pagination	Public
+/bookdetails/:id	Detailed view of a single book	Public
+/addbooks	Form to add a new book	Protected
+/login	Login page for authentication	Public
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+✅ Implemented Features
+Authentication
+Simple login form
 
-## Deploy on Vercel
+Cookie-based authentication to protect sensitive routes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Redirect unauthenticated users from /addbooks to /login
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Book Listings
+Display books in a responsive grid
+
+Pagination for easy navigation through large collections
+
+Each book card includes: title, author, price, rating, and cover image
+
+Book Details
+Detailed information including description, price, rating, and book metadata
+
+Display of multiple formats (Paperback, Hardcover, Ebook, Audiobook)
+
+Add New Book (Protected)
+Accessible only to logged-in users
+
+Form to add new books with validation
+
+Supports structured input: title, author, genre, published year, publisher, language, pages, ISBN, formats, price, rating, cover image, description
+
+Server-side integration to store book data (Express.js)
+
+Categories Section
+Browse books by genres (Fiction, Mystery, Sci-Fi, Romance, Non-Fiction)
+
+Responsive layout with hover effects
+
+Navigation / Navbar
+Dynamic menu highlighting based on current route
+
+Shows login/logout dynamically based on authentication state
+
+Mobile-friendly menu with toggle
+
+Responsive Design
+Fully responsive for desktop, tablet, and mobile
+
+Modern UI with Tailwind CSS and hover/transition effects
+
+Middleware Protection
+Server-side middleware to prevent unauthorized access to /addbooks
+
+Client-side fallback redirect for extra security
+
+🚀 Future Improvements
+User registration and profile management
+
+Community/book clubs section
+
+Reviews and blog posts section with rating and commenting
+
+Advanced search and filtering of books
+
+Infinite scroll for large book collections
+
+🛠 Tech Stack
+Frontend: Next.js, React, Tailwind CSS, DaisyUI
+
+Backend: Express.js, MongoDB
+
+Authentication: Cookie-based auth for protected routes
+
+Icons: React Icons (FaBook, FaHeart, etc.)
+
+---

@@ -1,14 +1,20 @@
 "use client";
 
-export default function LoginForm() {
+import { useRouter } from "next/navigation";
 
+export default function LoginForm() {
+  const router = useRouter();
   const handleSubmit = (e) => {
     e.preventDefault();
-    const email=e.target.email.value;
-    const password=e.target.password.value;
-    console.log(password,email)
-    if (email==="ahasana@sana.com" && password===123456) {
-      // navigate("/")
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(password, email);
+    if (email === "ahasana@sana.com" && password === "123456") {
+      document.cookie = "auth=true; path=/";
+      router.push("/addbooks");
+    }
+    else{
+      
     }
   };
 
