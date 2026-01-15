@@ -31,7 +31,7 @@ Start the backend server (if using Express.js)
 npm run server
 Make sure the server is running at http://localhost:5000 
 
-🌐 Route Summary
+ ##   🌐 Route Summary
 Route	Description	Access
 /	Home / Hero Section	Public
 /booklists	List of all books with pagination	Public
@@ -40,7 +40,7 @@ Route	Description	Access
 /login	Login page for authentication	Public
 
 ---
-✅ Implemented Features
+## ✅ Implemented Features
 1.Authentication
 Simple login form
 
