@@ -39,27 +39,31 @@ Route	Description	Access
 /addbooks	Form to add a new book	Protected
 /login	Login page for authentication	Public
 
+---
 ✅ Implemented Features
-Authentication
+1.Authentication
 Simple login form
 
 Cookie-based authentication to protect sensitive routes
 
 Redirect unauthenticated users from /addbooks to /login
 
-Book Listings
+
+2.Book Listings
 Display books in a responsive grid
 
 Pagination for easy navigation through large collections
 
 Each book card includes: title, author, price, rating, and cover image
 
-Book Details
+
+3.Book Details
 Detailed information including description, price, rating, and book metadata
 
 Display of multiple formats (Paperback, Hardcover, Ebook, Audiobook)
 
-Add New Book (Protected)
+
+4.Add New Book (Protected)
 Accessible only to logged-in users
 
 Form to add new books with validation
@@ -68,46 +72,38 @@ Supports structured input: title, author, genre, published year, publisher, lang
 
 Server-side integration to store book data (Express.js)
 
-Categories Section
+
+5.Categories Section
 Browse books by genres (Fiction, Mystery, Sci-Fi, Romance, Non-Fiction)
 
 Responsive layout with hover effects
 
-Navigation / Navbar
+6.Navigation / Navbar
 Dynamic menu highlighting based on current route
 
 Shows login/logout dynamically based on authentication state
 
 Mobile-friendly menu with toggle
 
-Responsive Design
+7.Responsive Design
 Fully responsive for desktop, tablet, and mobile
 
 Modern UI with Tailwind CSS and hover/transition effects
 
-Middleware Protection
+8.Middleware Protection
 Server-side middleware to prevent unauthorized access to /addbooks
 
 Client-side fallback redirect for extra security
 
-🚀 Future Improvements
-User registration and profile management
 
-Community/book clubs section
-
-Reviews and blog posts section with rating and commenting
-
-Advanced search and filtering of books
-
-Infinite scroll for large book collections
 
 🛠 Tech Stack
-Frontend: Next.js, React, Tailwind CSS, DaisyUI
+1.Frontend: Next.js, React, Tailwind CSS, DaisyUI
 
-Backend: Express.js, MongoDB
+2.Backend: Express.js, MongoDB
 
-Authentication: Cookie-based auth for protected routes
+3.Authentication: Cookie-based auth for protected routes
 
-Icons: React Icons (FaBook, FaHeart, etc.)
+4.Icons: React Icons (FaBook, FaHeart, etc.)
 
 ---
