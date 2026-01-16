@@ -25,18 +25,13 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/categories" className="hover:text-white">
+              <Link href="/" className="hover:text-white">
                 Categories
               </Link>
             </li>
             <li>
-              <Link href="/library" className="hover:text-white">
-                My Library
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="hover:text-white">
-                About
+              <Link href="/addbooks" className="hover:text-white">
+                Add Books
               </Link>
             </li>
           </ul>
@@ -47,22 +42,22 @@ export default function Footer() {
           <h4 className="text-white font-semibold mb-4">Categories</h4>
           <ul className="space-y-2">
             <li>
-              <Link href="/categories/fiction" className="hover:text-white">
+              <Link href="/" className="hover:text-white">
                 Fiction
               </Link>
             </li>
             <li>
-              <Link href="/categories/non-fiction" className="hover:text-white">
+              <Link href="/" className="hover:text-white">
                 Non-fiction
               </Link>
             </li>
             <li>
-              <Link href="/categories/mystery" className="hover:text-white">
+              <Link href="/" className="hover:text-white">
                 Mystery
               </Link>
             </li>
             <li>
-              <Link href="/categories/scifi" className="hover:text-white">
+              <Link href="/" className="hover:text-white">
                 Sci-fi
               </Link>
             </li>
