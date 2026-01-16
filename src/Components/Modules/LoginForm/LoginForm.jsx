@@ -1,9 +1,12 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function LoginForm() {
+  const [error, setError] = useState("");
   const router = useRouter();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -12,9 +15,8 @@ export default function LoginForm() {
     if (email === "ahasana@sana.com" && password === "123456") {
       document.cookie = "auth=true; path=/";
       router.push("/addbooks");
-    }
-    else{
-      
+    } else {
+      setError("Invalid email or password");
     }
   };
 
@@ -51,7 +53,7 @@ export default function LoginForm() {
             placeholder="••••••••"
           />
         </div>
-
+        {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
         {/* Button */}
         <button
           type="submit"

@@ -3,10 +3,11 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import useAxios from "../Modules/Hook/useAxios";
+import Swal from "sweetalert2";
 
 export default function AddBooks() {
-
-    const axiosInstance=useAxios()
+  const axiosInstance = useAxios();
+  const router = useRouter();
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -33,8 +34,8 @@ export default function AddBooks() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // setLoading(true);
-    // setError("");
+    setLoading(true);
+    setError("");
 
     const payload = {
       ...formData,
@@ -45,8 +46,13 @@ export default function AddBooks() {
       format: formData.format.split(",").map((f) => f.trim()),
     };
 
-    axiosInstance.post("/addbooks",payload)
-     
+    axiosInstance.post("/addbooks", payload);
+    Swal.fire({
+      title: "Successfull!",
+      text: "The book is successfully stored!",
+      icon: "success",
+    });
+    router.push("/booklists");
   };
 
   return (
@@ -88,12 +94,13 @@ export default function AddBooks() {
               onChange={handleChange}
             />
             <Input name="publisher" label="Publisher" onChange={handleChange} />
-            <Input name="language" label="Language" onChange={handleChange} />
+            <Input name="language" label="Language" required onChange={handleChange} />
             <Input
               name="pages"
               label="Pages"
               type="number"
               onChange={handleChange}
+              required
             />
             <Input name="ISBN" label="ISBN" onChange={handleChange} />
 
@@ -110,6 +117,7 @@ export default function AddBooks() {
               label="Price ($)"
               type="number"
               step="0.01"
+              required
               onChange={handleChange}
             />
             <Input
