@@ -45,7 +45,7 @@ export default function Navbar() {
                 className={`text-sm font-medium ${
                   pathname === link.href
                     ? "underline"
-                    : "text-gray-700 hover:text-indigo-700"
+                    : "text-gray-700 hover:text-teal-700"
                 }`}
               >
                 {link.name}
@@ -56,7 +56,7 @@ export default function Navbar() {
             {!loggedIn ? (
               <Link
                 href="/login"
-                className="ml-4 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm hover:bg-indigo-700 transition"
+                className="ml-4 px-4 py-2 bg-teal-600 text-white rounded-lg text-sm hover:bg-teal-700 transition"
               >
                 Login
               </Link>
@@ -89,7 +89,7 @@ export default function Navbar() {
               href={link.href}
               onClick={() => setIsOpen(false)}
               className={`block text-sm ${
-                pathname === link.href ? "text-indigo-600" : "text-gray-700"
+                pathname === link.href ? "text-teal-600" : "text-gray-700"
               }`}
             >
               {link.name}
@@ -99,7 +99,7 @@ export default function Navbar() {
           {!loggedIn ? (
             <Link
               href="/login"
-              className="block w-full text-center px-4 py-2 bg-indigo-600 text-white rounded-lg"
+              className="block w-full text-center px-4 py-2 bg-teal-600 text-white rounded-lg"
               onClick={() => setIsOpen(false)}
             >
               Login

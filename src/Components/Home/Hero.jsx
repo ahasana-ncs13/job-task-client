@@ -21,7 +21,7 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/booklists"
-              className="px-6 py-3 bg-indigo-600 text-white rounded-xl font-medium hover:bg-indigo-700 transition"
+              className="px-6 py-3 bg-teal-600 text-white rounded-xl font-medium hover:bg-teal-700 transition"
             >
               Browse Books
             </Link>
